@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&family=League+Spartan:wght@700&family=Outfit&family=Overpass&display=swap");
+:root {
+  --mainDarkBlue: hsl(222, 26%, 31%);
+  --keypadDarkBlue: hsl(223, 31%, 20%);
+  --screenDarkBlue: hsl(224, 36%, 15%);
+  --keyDarkBlue: hsl(225, 21%, 49%);
+  --keyDarkBlueShadow: hsl(224, 28%, 35%);
+  --keyPressDarkBlue: hsl(224, 51%, 76%);
+  --keyRed: hsl(6, 63%, 50%);
+  --keyPressRed: hsl(6, 93%, 67%);
+  --keyRedShadow: hsl(6, 70%, 34%);
+  --keyOrange: hsl(30, 25%, 89%);
+  --keyPressOrange: hsl(0, 0%, 100%);
+  --keyOrangeShadow: hsl(28, 16%, 65%);
+  --textBlue: hsl(221, 14%, 31%);
+  --textWhite: hsl(0, 0%, 100%);
+  --headline: hsl(0, 0%, 100%);
+  --calc: hsl(0, 0%, 100%);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+  font-size: 32px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.calculatorApp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--mainDarkBlue);
+  height: 533px;
+  width: 300px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 50px 88fr 420fr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+}
+.calculatorApp .headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calculatorApp .headline .title {
+  font-size: 24px;
+  color: var(--headline);
+}
+.calculatorApp .headline .themeSlider {
+  height: 100%;
+  font-size: 12px;
+  color: var(--headline);
+  display: flex;
+  align-items: flex-end;
+}
+.calculatorApp .headline .themeSlider p {
+  margin-bottom: 6px;
+}
+.calculatorApp .headline .themeSlider .slider {
+  margin-left: 20px;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 5px;
+}
+.calculatorApp .headline .themeSlider .slider p {
+  margin: 0;
+}
+.calculatorApp .headline .themeSlider .slider input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background: var(--mainDarkBlue);
+  width: 60px;
+  margin: 0;
+}
+.calculatorApp .headline .themeSlider .slider input[type=range]::-webkit-slider-runnable-track {
+  background: var(--keypadDarkBlue);
+  height: 20px;
+  border-radius: 999999px;
+  padding: 3.5px;
+}
+.calculatorApp .headline .themeSlider .slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  background-color: var(--keyRed);
+  border: none;
+  aspect-ratio: 1/1;
+  width: 13px;
+  border-radius: 99999px;
+}
+.calculatorApp .headline .themeSlider .slider input[type=range]:focus::-webkit-slider-thumb {
+  background-color: var(--keyPressRed);
+}
+.calculatorApp .display {
+  background-color: var(--screenDarkBlue);
+  font-size: 1em;
+  border-radius: 10px;
+  color: var(--headline);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1em;
+  overflow: hidden;
+}
+.calculatorApp .buttons {
+  border-radius: 10px;
+  background-color: var(--keypadDarkBlue);
+  display: grid;
+  padding: 6%;
+  grid: 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr;
+  grid-gap: 6%;
+}
+.calculatorApp .buttons button {
+  border: none;
+  font-size: 0.8em;
+  font-family: "League Spartan", sans-serif;
+  border-radius: 5px;
+  box-shadow: 0px 4px 0px 0px var(--keyOrangeShadow);
+  background-color: var(--keyOrange);
+  color: var(--textBlue);
+  text-align: center;
+  vertical-align: center;
+}
+.calculatorApp .buttons button:hover {
+  background-color: var(--keyPressOrange);
+}
+.calculatorApp .buttons button:active {
+  box-shadow: 0px 1px 0px 0px var(--keyOrangeShadow);
+  transform: translateY(3px);
+}
+.calculatorApp .buttons #delete {
+  background-color: var(--keyDarkBlue);
+  box-shadow: 0px 4px 0px 0px var(--keyDarkBlueShadow);
+  color: var(--textWhite);
+  font-size: 0.6em;
+}
+.calculatorApp .buttons #delete:hover {
+  background-color: var(--keyPressDarkBlue);
+}
+.calculatorApp .buttons #delete:active {
+  box-shadow: 0px 1px 0px 0px var(--keyDarkBlueShadow);
+  transform: translateY(3px);
+}
+.calculatorApp .buttons #reset {
+  background-color: var(--keyDarkBlue);
+  box-shadow: 0px 4px 0px 0px var(--keyDarkBlueShadow);
+  color: var(--textWhite);
+  font-size: 0.6em;
+  grid-column: 1/3;
+}
+.calculatorApp .buttons #reset:hover {
+  background-color: var(--keyPressDarkBlue);
+}
+.calculatorApp .buttons #reset:active {
+  box-shadow: 0px 1px 0px 0px var(--keyDarkBlueShadow);
+  transform: translateY(3px);
+}
+.calculatorApp .buttons #calculate {
+  background-color: var(--keyRed);
+  color: var(--calc);
+  box-shadow: 0px 4px 0px 0px var(--keyRedShadow);
+  grid-column: 3/5;
+}
+.calculatorApp .buttons #calculate:hover {
+  background-color: var(--keyPressRed);
+}
+.calculatorApp .buttons #calculate:active {
+  box-shadow: 0px 1px 0px 0px var(--keyPressRed);
+  transform: translateY(3px);
+}
+@media (min-width: 1440px) {
+  .calculatorApp {
+    height: 80vh;
+    min-height: 533px;
+    width: 40vw;
+    max-width: 800px;
+  }
+}/*# sourceMappingURL=style.css.map */
